@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+  <meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+  <title>תוכנית בריאות ותחזוקה ל-BAV ושמירה על משקל</title>
+  <style>
+    :root {
+      --bg: #0b1120;
+      --surface: #1e293b;
+      --surface-alt: #0f172a;
+      --card: #1e293b;
+      --border: #334155;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+      --primary: #38bdf8;
+      --accent: #4ade80;
+      --warning: #facc15;
+      --danger: #f87171;
+    }
+    [data-theme="light"] {
+      --bg: #f8fafc;
+      --surface: #ffffff;
+      --surface-alt: #f1f5f9;
+      --card: #ffffff;
+      --border: #cbd5e1;
+      --text: #0f172a;
+      --text-muted: #475569;
+      --primary: #0284c7;
+      --accent: #16a34a;
+      --warning: #b45309;
+      --danger: #dc2626;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.65;
+      padding: 20px;
+    }
+    .container { max-width: 980px; margin: 0 auto; }
+    header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 16px 0 20px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 24px;
+    }
+    .header-actions { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+    .header-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(56, 189, 248, 0.12);
+      color: var(--primary);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      padding: 6px 14px;
+      border-radius: 9999px;
+      font-size: 0.85rem;
+      font-weight: 700;
+    }
+    .btn {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 10px 16px;
+      min-height: 44px;
+      border-radius: 9999px;
+      cursor: pointer;
+      font-size: 0.88rem;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .btn:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
+    h1 { font-size: 1.8rem; font-weight: 900; line-height: 1.25; margin-bottom: 8px; }
+    .subtitle { font-size: 1rem; color: var(--text-muted); margin-bottom: 20px; }
+    .bluf-box {
+      background: var(--surface-alt);
+      border-inline-start: 4px solid var(--primary);
+      border-radius: 12px;
+      padding: 18px 20px;
+      margin-bottom: 24px;
+      font-size: 0.98rem;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 20px;
+    }
+    .card h2 {
+      font-size: 1.15rem;
+      margin-bottom: 12px;
+      color: var(--primary);
+    }
+    ul { padding-inline-start: 20px; }
+    li { margin-bottom: 10px; font-size: 0.95rem; }
+    .table-wrap {
+      overflow-x: auto;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      margin-bottom: 24px;
+    }
+    .table-head {
+      padding: 18px 20px 8px;
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--primary);
+    }
+    table { width: 100%; border-collapse: collapse; font-size: 0.93rem; }
+    th, td {
+      padding: 14px 16px;
+      text-align: start;
+      border-top: 1px solid var(--border);
+      vertical-align: top;
+    }
+    th { background: var(--surface-alt); font-weight: 700; }
+    .pill-danger {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 9999px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      background: rgba(248, 113, 113, 0.14);
+      color: var(--danger);
+      border: 1px solid rgba(248, 113, 113, 0.3);
+    }
+    .pill-ok {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 9999px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      background: rgba(74, 222, 128, 0.14);
+      color: var(--accent);
+      border: 1px solid rgba(74, 222, 128, 0.3);
+    }
+    footer {
+      border-top: 1px solid var(--border);
+      padding-top: 16px;
+      margin-top: 12px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 10px;
+    }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <header>
+      <span class="header-badge">❤️ מדריך תחזוקה ל-BAV ושמירה על משקל</span>
+      <div class="header-actions">
+        <a class="btn" href="./index.html">🏋️ תוכנית ה-12 דקות בבית</a>
+        <button id="themeBtn" class="btn" type="button" aria-pressed="true" onclick="toggleTheme()">🌙 מצב לילה / יום</button>
+      </div>
+    </header>
+
+    <h1>תוכנית בריאות ותחזוקה ל-BAV ושמירה על משקל</h1>
+    <p class="subtitle">שגרה מעשית וגמישה למניעת שומן תוך בטני, שמירה על לחץ דם תקין ומעקב קרדיולוגי לאורך שנים</p>
+
+    <section class="bluf-box" aria-label="שורה תחתונה">
+      <strong>שורה תחתונה:</strong> תוכנית תחזוקה טובה למסתם ותיני דו-עלי (BAV) ולמניעת שומן תוך בטני לא דורשת דיאטת כסאח או אימוני קצה. היא נשענת על ארבעה הרגלים קבועים: פעילות אירובית מתונה וכוח קל בלי עצירת נשימה, תזונה מאוזנת 80/20, מדגם לחץ דם רבעוני, והימנעות מתוספים שמקפיצים לחץ דם או מתנגשים עם סרטרלין.
+    </section>
+
+    <section class="grid" aria-label="ארבעת עמודי התוכנית">
+      <article class="card">
+        <h2>1. אימונים (בטוחים ל-BAV)</h2>
+        <ul>
+          <li><strong>בסיס אירובי:</strong> 150 דקות בשבוע בעצימות קלה עד בינונית (הליכה מהירה, אופניים או שחייה בקצב דיבור), או יעד פשוט של 7,000 עד 9,000 צעדים ביום. זהו הכלי היעיל ביותר נגד שומן תוך בטני גם בגיל מבוגר.</li>
+          <li><strong>כוח מתון:</strong> פעמיים בשבוע ל-20 עד 30 דקות, משקלים קלים עד בינוניים (12 עד 15 חזרות לסט) לשמירה על שריר ומטבוליזם.</li>
+          <li><strong>כלל הברזל ל-BAV:</strong> לנשום ברציפות בכל חזרה (לנשוף במאמץ) ולהימנע מהרמות מקסימליות או עצירת נשימה (Valsalva), שמקפיצים בפתאומיות את לחץ הדם באבי העורקים.</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h2>2. תזונה (גמישה, לא קפדנית מדי)</h2>
+        <ul>
+          <li><strong>גישת 80/20:</strong> כ-80% אוכל טבעי ומאוזן בסגנון ים תיכוני (חלבון רזה, ירקות, שמן זית, דגים וקטניות), ו-20% גמישות למסעדות והנאה בלי לספור קלוריות.</li>
+          <li><strong>שני עוגנים פשוטים:</strong> לשלב מנת חלבון בכל ארוחה (לשובע ולשמירה על שריר), ולהמעיט במזון אולטרה-מעובד ועשיר בנתרן לשמירה על לחץ דם נמוך.</li>
+          <li><strong>קלוריות נוזליות:</strong> לצמצם שתייה מתוקה ואלכוהול תכוף, שהם הגורם המהיר ביותר לצבירת שומן תוך בטני.</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h2>3. מתי ואיך למדוד לחץ דם</h2>
+        <ul>
+          <li><strong>תדירות מומלצת:</strong> כשהלחץ תקין, מספיק מדגם של 3 ימים רצופים פעם ברבעון (בוקר לפני קפה וערב לפני שינה, שתי מדידות בהפרש דקה בכל פעם). לפני ביקור קרדיולוג כדאי לעשות מדגם של שבוע.</li>
+          <li><strong>טכניקה נכונה:</strong> מד לחץ דם לזרוע (לא לשורש כף היד), אחרי 5 דקות ישיבה שקטה, רגליים על הרצפה ויד בגובה הלב.</li>
+          <li><strong>יעד מקובל:</strong> לפי הנחיות AHA ו-ESC ל-BAV, היעד הכללי הוא מתחת ל-130/80 (או היעד המדויק שהקרדיולוג יקבע לפי קוטר אבי העורקים באקו).</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h2>4. מעקב רפואי והרגלים משלימים</h2>
+        <ul>
+          <li><strong>מעקב קרדיולוגי:</strong> אקו לב לפי התדירות שהקרדיולוג קובע (לרוב אחת לשנה עד שלוש שנים כשהמסתם ואבי העורקים יציבים).</li>
+          <li><strong>בדיקות דם שנתיות:</strong> פרופיל שומנים מלא, סוכר בצום, HbA1c, ויטמין D ו-B12. מומלץ לבקש פעם אחת גם ApoB ו-Lp(a) להערכת סיכון לבבי מדויקת.</li>
+          <li><strong>שיניים ושינה:</strong> שיננית כל חצי שנה והיגיינת פה קפדנית (להפחתת סיכון לזיהומים ממקור דנטלי באזור המסתם), ושינה של כ-7 שעות בלילה.</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="table-wrap" aria-label="טבלת תוספים">
+      <div class="table-head">5. תוספים ותכשירים: ממה להימנע ומה לשקול (BAV + סרטרלין)</div>
+      <table>
+        <thead>
+          <tr>
+            <th>קטגוריה</th>
+            <th>תוספים ותכשירים</th>
+            <th>למה</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="pill-danger">להימנע (BAV)</span></td>
+            <td>אבקות Pre-Workout, שורפי שומן, יוהימבין, סינפרין, קפאין גבוה, שוש קירח (Licorice) ותרופות נגד גודש באף (פסאודואפדרין)</td>
+            <td>מקפיצים דופק ולחץ דם ועלולים להעמיס על אבי העורקים</td>
+          </tr>
+          <tr>
+            <td><span class="pill-danger">להימנע (סרטרלין)</span></td>
+            <td>היפריקום (St. John's Wort), תוספי 5-HTP, SAMe וצמחים מדללים כמו גינקו בילובה</td>
+            <td>אינטראקציה מסוכנת עם SSRI (עודף סרוטונין או נטייה מוגברת לדימום)</td>
+          </tr>
+          <tr>
+            <td><span class="pill-ok">לשקול לפי בדיקת דם</span></td>
+            <td>ויטמין D (נפוץ שחסר בחורף בצפון אירופה), מגנזיום גליצינאט בערב, אומגה 3 (ולהפסיק שבועיים לפני כל ניתוח בגלל דילול דם קל)</td>
+            <td>תומכים בבריאות לבבית, בשינה ובלחץ דם רק כשיש חוסר או צורך אמיתי באישור רופא</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <footer>
+      <div>מדריך תחזוקה אישי • BAV</div>
+      <div>הערה רפואית: כל יעד של לחץ דם, מגבלת דופק באימון או תוסף קבוע יש לאשר סופית מול הקרדיולוג ורופא המשפחה.</div>
+    </footer>
+  </main>
+
+  <script>
+    function syncThemeButton() {
+      const btn = document.getElementById('themeBtn');
+      const isDark = (document.documentElement.getAttribute('data-theme') || 'dark') === 'dark';
+      btn.setAttribute('aria-pressed', isDark ? 'true' : 'false');
+      btn.textContent = isDark ? '☀️ מעבר ליום' : '🌙 מעבר ללילה';
+    }
+    function toggleTheme() {
+      const current = document.documentElement.getAttribute('data-theme') || 'dark';
+      const next = current === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      try { localStorage.setItem('theme_pref', next); } catch(e) {}
+      syncThemeButton();
+    }
+    (function() {
+      const saved = localStorage.getItem('theme_pref');
+      if (saved) document.documentElement.setAttribute('data-theme', saved);
+      syncThemeButton();
+    })();
+  </script>
+</body>
+</html>
